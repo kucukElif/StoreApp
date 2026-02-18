@@ -1,1 +1,12 @@
-﻿<h5>Index</h5>
+﻿@model ProductListModel
+
+@foreach(var p in Model.Products)
+            {
+                <div>
+                    <h4>@p.Name</h4>
+                    <p>@p.Description</p>
+
+                    <p>@p.Price</p>
+                </div>
+            }
+<h5>Index Page</h5>

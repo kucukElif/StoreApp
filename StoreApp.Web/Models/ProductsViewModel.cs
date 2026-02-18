@@ -8,4 +8,9 @@
         public decimal Price { get; set; }
         public string Category { get; set; } = string.Empty;
     }
+
+    public class ProductListModel
+    {
+        public IEnumerable<ProductsViewModel> Products { get; set; } = Enumerable.Empty<ProductsViewModel>();
+    }
 }
