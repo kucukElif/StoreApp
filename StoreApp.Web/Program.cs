@@ -20,7 +20,6 @@ builder.Services.AddScoped<IStoreRepository,EfStoreRepository>();
 var app = builder.Build();
 
 app.UseStaticFiles();
-app.MapDefaultControllerRoute();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -31,12 +30,15 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseStaticFiles();
 
 app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapRazorPages();
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
+
 
 app.Run();

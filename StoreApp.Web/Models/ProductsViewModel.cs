@@ -12,5 +12,13 @@
     public class ProductListModel
     {
         public IEnumerable<ProductsViewModel> Products { get; set; } = Enumerable.Empty<ProductsViewModel>();
+        public PageInfo PageInfo { get; set; } = new();
+    }
+
+    public class PageInfo
+    {
+        public int TotalItems { get; set; }
+        public int ItemsPerPage { get; set; }
+        public int TotalPages => (int)Math.Ceiling((decimal)TotalItems / ItemsPerPage);
     }
 }
